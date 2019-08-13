@@ -1,0 +1,22 @@
+.header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+}
+
+.header-container {
+  max-width: 935px;
+  background: #fff;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.header-logo {
+  text-align: left;
+}
+
+.header-search {
+  text-align: center;
+}
+
+.header-action {
+  text-align: right;
+}

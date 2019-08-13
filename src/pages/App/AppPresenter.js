@@ -1,9 +1,15 @@
 import React from 'react';
 
+import Header from './../../components/Header';
+
 function AppPresenter() {
   return (
     <div className="App">
-      <header className="App-header">
+      <Header />
+
+      {/* Router */}
+
+      <div className="app-container">
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -12,7 +18,7 @@ function AppPresenter() {
         >
           Building
         </a>
-      </header>
+      </div>
     </div>
   );
 }
