@@ -7,11 +7,14 @@ function HeaderPresenter(props) {
   return (
     <div className="header">
       <div className="header-container ant-layout-header">
-        <div className="header-logo ant-col ant-col-8" style={styles.logo}>
+        <div
+          className="header-logo ant-col ant-col-sm-8 ant-col-xs-0"
+          style={styles.logo}
+        >
           Mingstagram
         </div>
 
-        <div className="header-search ant-col ant-col-8">
+        <div className="header-search ant-col ant-col-sm-8 ant-col-xs-16">
           <span
             className="ant-input-search ant-input-affix-wrapper"
             style={{ width: 200 }}
@@ -49,15 +52,16 @@ function HeaderPresenter(props) {
           </span>
         </div>
 
-        <div className="header-action ant-col ant-col-8">
-          <div>
-            <span style={styles.spanIcon}>
+        <div className="header-action ant-col ant-col-sm-8 ant-col-xs-8">
+          <div className="ant-col ant-col-lg-12 ant-col-sm-8 ant-col-xs-0" />
+          <div className="ant-col ant-col-lg-12 ant-col-sm-16 ant-col-xs-24">
+            <span className="ant-col ant-col-8" style={styles.spanIcon}>
               <Icons name={'compase'} width={24} height={24} />
             </span>
-            <span style={styles.spanIcon}>
+            <span className="ant-col ant-col-8" style={styles.spanIcon}>
               <Icons name={'heart'} width={24} height={24} />
             </span>
-            <span style={styles.spanIcon}>
+            <span className="ant-col ant-col-8" style={styles.spanIcon}>
               <Icons name={'user'} width={24} height={24} />
             </span>
           </div>
@@ -74,9 +78,7 @@ const styles = {
   searchInput: {
     textAlign: 'center'
   },
-  spanIcon: {
-    marginLeft: 24
-  }
+  spanIcon: {}
 };
 
 export default HeaderPresenter;

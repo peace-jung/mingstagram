@@ -18,5 +18,9 @@
 }
 
 .header-action {
-  text-align: right;
+}
+
+@media only screen and (max-width: 576px) {
+  .header-container {
+  }
 }
