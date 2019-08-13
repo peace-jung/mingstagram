@@ -2,5 +2,5 @@
 
 copy instagram project
 
-[show project]([mingstagram.netlify.com](https://mingstagram.netlify.com/))
+[show project](https://mingstagram.netlify.com/)
 
