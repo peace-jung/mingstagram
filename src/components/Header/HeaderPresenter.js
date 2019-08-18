@@ -6,7 +6,7 @@ import Icons from '../Icons';
 const HeaderPresenter = props => {
   const { search, onChangeState, onSignOut } = props;
   return (
-    <div className="header">
+    <div className="header" style={{ background: '#fff' }}>
       <div className="header-container ant-layout-header">
         <div
           className="header-logo ant-col ant-col-sm-8 ant-col-xs-3"
@@ -17,9 +17,17 @@ const HeaderPresenter = props => {
               className="ant-col ant-col-sm-4 ant-col-xs-24"
               style={{ textAlign: 'center' }}
             >
-              <Icons name={'instagram'} width={30} height={30} />
+              <Icons
+                name={'instagram'}
+                width={30}
+                height={30}
+                style={styles.iconAlign}
+              />
             </span>
-            <span className="ant-col ant-col-sm-20 ant-col-xs-0">
+            <span
+              className="ant-col ant-col-sm-20 ant-col-xs-0"
+              style={styles.logoFont}
+            >
               Mingstagram
             </span>
           </Link>
@@ -51,17 +59,32 @@ const HeaderPresenter = props => {
           <div className="ant-col ant-col-lg-12 ant-col-sm-16 ant-col-xs-24">
             <Link to="/#">
               <span className="ant-col ant-col-8" style={styles.spanIcon}>
-                <Icons name={'compase'} width={24} height={24} />
+                <Icons
+                  name={'compase'}
+                  width={24}
+                  height={24}
+                  style={styles.iconAlign}
+                />
               </span>
             </Link>
             <Link to="/#">
               <span className="ant-col ant-col-8" style={styles.spanIcon}>
-                <Icons name={'heart'} width={24} height={24} />
+                <Icons
+                  name={'heart'}
+                  width={24}
+                  height={24}
+                  style={styles.iconAlign}
+                />
               </span>
             </Link>
             <span onClick={onSignOut}>
               <span className="ant-col ant-col-8" style={styles.spanIcon}>
-                <Icons name={'user'} width={24} height={24} />
+                <Icons
+                  name={'user'}
+                  width={24}
+                  height={24}
+                  style={styles.iconAlign}
+                />
               </span>
             </span>
             {/* <Link to="/#">
@@ -77,14 +100,16 @@ const HeaderPresenter = props => {
 };
 
 const styles = {
-  logo: {
-    fontSize: 24
-  },
+  logo: {},
+  logoFont: { fontSize: 24, fontFamily: 'cursive' },
   searchInput: {
     textAlign: 'center'
   },
   spanIcon: {
     color: '#333'
+  },
+  iconAlign: {
+    verticalAlign: 'middle'
   }
 };
 

@@ -1,7 +1,9 @@
 import React from 'react';
+import Recommand from './Recommand';
 
-const FeedPresenter = () => {
-  return <div>Feed</div>;
+const FeedPresenter = props => {
+  const { feed } = props;
+  return feed.follow ? <Recommand /> : <Recommand />;
 };
 
 export default FeedPresenter;

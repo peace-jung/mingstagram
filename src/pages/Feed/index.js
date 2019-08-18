@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import FeedContainer from './FeedContainer';
 
 const mapStateToProps = state => {
-  const { user } = state;
+  const { user, feed } = state;
 
   return {
-    user
+    user,
+    feed
   };
 };
 

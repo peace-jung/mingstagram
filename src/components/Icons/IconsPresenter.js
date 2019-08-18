@@ -1,7 +1,7 @@
 import React from 'react';
 
 const IconsPresenter = props => {
-  const { name, width, height } = props;
+  const { name, width, height, style } = props;
 
   const icon = () => {
     switch (name) {
@@ -34,7 +34,7 @@ const IconsPresenter = props => {
     <i
       aria-label={`icon: ${name}`}
       className={`anticon anticon-${name}`}
-      style={Object.assign({}, props.style)}
+      style={Object.assign({}, style)}
     >
       <svg
         viewBox="64 64 896 896"
