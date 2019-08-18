@@ -8,37 +8,59 @@ const SignUpPresenter = () => {
           <span>Mingstagram</span>
         </div>
         <div>
-          <input
-            placeholder="이메일 주소"
-            type="text"
-            className="ant-input"
-            // value=""
-            style={styles.inputStyle}
-          />
-          <input
-            placeholder="사용자 이름"
-            type="text"
-            className="ant-input"
-            // value=""
-            style={styles.inputStyle}
-          />
-          <input
-            placeholder="비밀번호"
-            type="password"
-            className="ant-input"
-            // value=""
-            style={styles.inputStyle}
-          />
-          <input
-            placeholder="비밀번호 확인"
-            type="password"
-            className="ant-input"
-            // value=""
-            style={styles.inputStyle}
-          />
+          <form>
+            <input
+              placeholder="이메일 주소"
+              type="text"
+              className="ant-input"
+              name="email"
+              autoComplete="off"
+              // value=""
+              style={styles.inputStyle}
+            />
+            <input
+              placeholder="사용자 이름"
+              type="text"
+              className="ant-input"
+              name="username"
+              autoComplete="off"
+              // value=""
+              style={styles.inputStyle}
+            />
+            <input
+              placeholder="닉네임"
+              type="text"
+              className="ant-input"
+              name="name"
+              autoComplete="off"
+              // value=""
+              style={styles.inputStyle}
+            />
+            <input
+              placeholder="비밀번호"
+              type="password"
+              className="ant-input"
+              name="password"
+              autoComplete="off"
+              // value=""
+              style={styles.inputStyle}
+            />
+            <input
+              placeholder="비밀번호 확인"
+              type="password"
+              className="ant-input"
+              name="password2"
+              autoComplete="off"
+              // value=""
+              style={styles.inputStyle}
+            />
+          </form>
         </div>
         <div style={{ marginBottom: 6 }}>
-          <button type="button" className="ant-btn ant-btn-primary ant-btn-block">
+          <button
+            type="button"
+            className="ant-btn ant-btn-primary ant-btn-block"
+          >
             <span>회원가입</span>
           </button>
         </div>

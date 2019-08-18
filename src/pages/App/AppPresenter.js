@@ -19,7 +19,7 @@ const AppPresenter = () => {
       <Suspense fallback={loading}>
         <Switch>
           <Route exact path="/" component={Main} />
-          <Route exact path="/#" component={Main} />
+          <Route path="/#" component={Main} />
           <Route path="/accounts" component={Account} />
           <Route path="*" component={Page404} />
         </Switch>

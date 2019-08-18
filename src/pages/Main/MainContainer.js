@@ -9,7 +9,7 @@ class MainContainer extends Component {
 
 MainContainer.defaultProps = {
   user: {
-    id: 'peace'
+    // id: 'peace'
   }
 };
 

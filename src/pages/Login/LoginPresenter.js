@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const LoginPresenter = props => {
   const { onLogin } = props;
+  const dispatch = useDispatch();
   return (
     <div style={styles.container}>
       <div style={styles.loginBox}>
@@ -10,26 +12,40 @@ const LoginPresenter = props => {
           <span>Mingstagram</span>
         </div>
         <div>
-          <input
-            placeholder="이메일 주소"
-            type="text"
-            className="ant-input"
-            // value=""
-            style={styles.inputStyle}
-          />
-          <input
-            placeholder="비밀번호"
-            type="text"
-            className="ant-input"
-            // value=""
-            style={styles.inputStyle}
-          />
+          <form>
+            <input
+              placeholder="이메일 주소"
+              type="text"
+              className="ant-input"
+              name="email"
+              autoComplete="email"
+              // value=""
+              style={styles.inputStyle}
+            />
+            <input
+              placeholder="비밀번호"
+              type="password"
+              className="ant-input"
+              name="current-password"
+              autoComplete="current-password"
+              // value=""
+              style={styles.inputStyle}
+            />
+          </form>
         </div>
         <div style={{ marginBottom: 6 }}>
           <button
             type="button"
             className="ant-btn ant-btn-primary ant-btn-block"
-            onClick={onLogin}
+            // onClick={onLogin}
+            onClick={() =>
+              dispatch({
+                type: 'USER/SIGNIN',
+                id: 'peace',
+                name: 'peace',
+                nickname: '피스'
+              })
+            }
           >
             <span>로그인</span>
           </button>
