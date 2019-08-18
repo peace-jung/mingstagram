@@ -1,2 +1,2 @@
-import FeedContainer from './FeedContainer';
-export default FeedContainer;
+import ResetPasswordContainer from './ResetPasswordContainer';
+export default ResetPasswordContainer;
