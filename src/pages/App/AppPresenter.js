@@ -21,7 +21,7 @@ const AppPresenter = () => {
           <Route exact path="/" component={Main} />
           <Route path="/#" component={Main} />
           <Route path="/accounts" component={Account} />
-          <Route path="*" component={Page404} />
+          <Route component={Page404} />
         </Switch>
       </Suspense>
     </Router>

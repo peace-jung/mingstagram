@@ -1,6 +1,7 @@
 import React from 'react';
 
-const SignUpPresenter = () => {
+const SignUpPresenter = props => {
+  const { onRegister } = props;
   return (
     <div style={styles.container}>
       <div style={styles.signBox}>
@@ -60,6 +61,7 @@ const SignUpPresenter = () => {
           <button
             type="button"
             className="ant-btn ant-btn-primary ant-btn-block"
+            onClick={onRegister}
           >
             <span>회원가입</span>
           </button>
