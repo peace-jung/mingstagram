@@ -1,16 +1,23 @@
 const SIGNIN = 'USER/SIGNIN';
 const SIGNOUT = 'USER/SIGNOUT';
 
-const signIn = data => ({ type: SIGNIN, ...data });
+const signIn = (userId, name, nickname) => ({
+  type: SIGNIN,
+  userId,
+  name,
+  nickname
+});
 const signOut = () => ({ type: SIGNOUT });
 
 const initialState = {
-  id: null,
+  userId: null,
   name: null,
-  nickname: null
-  // id: 'peace',
-  // name: 'peace',
-  // nickname: '피스'
+  nickname: null,
+  profile_image: null,
+  introduction: null,
+  phone_number: null,
+  gender: null,
+  createdAt: null
 };
 
 function reducer(state = initialState, action) {
@@ -27,7 +34,7 @@ function reducer(state = initialState, action) {
 const applySignIn = (state, action) => {
   return {
     ...state,
-    id: action.id,
+    userId: action.userId,
     name: action.name,
     nickname: action.nickname
   };
@@ -36,7 +43,7 @@ const applySignIn = (state, action) => {
 const applySignOut = state => {
   return {
     // ...state,
-    id: null,
+    userId: null,
     name: null,
     nickname: null
   };

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 const LoginPresenter = props => {
   const { onLogin } = props;
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   return (
     <div style={styles.container}>
       <div style={styles.loginBox}>
@@ -37,15 +37,15 @@ const LoginPresenter = props => {
           <button
             type="button"
             className="ant-btn ant-btn-primary ant-btn-block"
-            // onClick={onLogin}
-            onClick={() =>
-              dispatch({
-                type: 'USER/SIGNIN',
-                id: 'peace',
-                name: 'peace',
-                nickname: '피스'
-              })
-            }
+            onClick={onLogin}
+            // onClick={() =>
+            //   dispatch({
+            //     type: 'USER/SIGNIN',
+            //     id: 'peace',
+            //     name: 'peace',
+            //     nickname: '피스'
+            //   })
+            // }
           >
             <span>로그인</span>
           </button>

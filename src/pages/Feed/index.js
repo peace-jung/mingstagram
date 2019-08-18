@@ -1,2 +1,17 @@
+import { connect } from 'react-redux';
 import FeedContainer from './FeedContainer';
-export default FeedContainer;
+
+const mapStateToProps = state => {
+  const { user } = state;
+
+  return {
+    user
+  };
+};
+
+// const mapDispatchToProps
+
+export default connect(
+  mapStateToProps,
+  null
+)(FeedContainer);

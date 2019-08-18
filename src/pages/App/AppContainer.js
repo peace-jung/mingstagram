@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import rootReducer from '../../redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from '../../redux';
 
 import AppPresenter from './AppPresenter';
-
-const store = createStore(rootReducer);
 
 class AppContainer extends Component {
   render() {
     return (
       <Provider store={store}>
-        <AppPresenter />
+        <PersistGate loading={null} persistor={persistor}>
+          <AppPresenter />
+        </PersistGate>
       </Provider>
     );
   }

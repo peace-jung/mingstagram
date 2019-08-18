@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Icons from '../Icons';
 
 const HeaderPresenter = props => {
-  const { search, onChangeState } = props;
+  const { search, onChangeState, onSignOut } = props;
   return (
     <div className="header">
       <div className="header-container ant-layout-header">
@@ -59,11 +59,16 @@ const HeaderPresenter = props => {
                 <Icons name={'heart'} width={24} height={24} />
               </span>
             </Link>
-            <Link to="/#">
+            <span onClick={onSignOut}>
               <span className="ant-col ant-col-8" style={styles.spanIcon}>
                 <Icons name={'user'} width={24} height={24} />
               </span>
-            </Link>
+            </span>
+            {/* <Link to="/#">
+              <span className="ant-col ant-col-8" style={styles.spanIcon}>
+                <Icons name={'user'} width={24} height={24} />
+              </span>
+            </Link> */}
           </div>
         </div>
       </div>
