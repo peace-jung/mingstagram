@@ -12,7 +12,7 @@ const FeedListPresenter = props => {
     <div>
       <SettingUserProfile />
 
-      <FeedItem />
+      {feedList && feedList.map(feed => <FeedItem feed={feed} />)}
     </div>
   );
 };

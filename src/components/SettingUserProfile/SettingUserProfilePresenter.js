@@ -16,7 +16,7 @@ const SettingUserProfilePresenter = props => {
 SettingUserProfilePresenter.defaultProps = {};
 
 const styles = {
-  wrapper: {},
+  wrapper: { padding: '0 8px' },
   container: {
     // width: '100%',
     display: 'flex',

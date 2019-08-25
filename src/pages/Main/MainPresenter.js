@@ -25,7 +25,7 @@ const styles = {
   main: {
     maxWidth: 600,
     margin: '0 auto',
-    padding: '36px 8px 16px'
+    padding: '36px 0 16px'
   }
 };
 
