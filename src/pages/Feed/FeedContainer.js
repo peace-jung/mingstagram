@@ -14,7 +14,8 @@ class FeedContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.props.setNewFeed(feeds);
+    const random = new Date().getMilliseconds() % 2;
+    this.props.setNewFeed(random === 1 ? feeds : []);
     this.props.setFollowingList([]);
   }
 
