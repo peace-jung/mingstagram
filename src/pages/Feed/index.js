@@ -1,18 +1,27 @@
 import { connect } from 'react-redux';
 import FeedContainer from './FeedContainer';
+import { actionCreators as feedAction } from './../../redux/modules/feed';
 
 const mapStateToProps = state => {
-  const { user, feed } = state;
+  const { user } = state;
 
   return {
-    user,
-    feed
+    user
   };
 };
 
-// const mapDispatchToProps
+const mapDispatchToProps = dispatch => {
+  return {
+    setNewFeed: feed => {
+      return dispatch(feedAction.setNewFeed(feed));
+    },
+    setFollowingList: following => {
+      return dispatch(feedAction.setFollowingList(following));
+    }
+  };
+};
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(FeedContainer);

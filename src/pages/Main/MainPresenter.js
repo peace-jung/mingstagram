@@ -7,17 +7,26 @@ import Header from '../../components/Header';
 
 const MainPresenter = props => {
   const { user } = props;
-  // const user = useSelector(state => state.user);
   const isLogin = user.userId !== null && typeof user.userId !== 'undefined';
 
   return isLogin ? (
-    <div style={{ height: '100%', background: '#fafafa' }}>
+    <div style={{ minHeight: '100%', background: '#fafafa' }}>
       <Header />
-      <Feed />
+      <div style={styles.main}>
+        <Feed />
+      </div>
     </div>
   ) : (
     <Login />
   );
+};
+
+const styles = {
+  main: {
+    maxWidth: 600,
+    margin: '0 auto',
+    padding: '36px 8px 16px'
+  }
 };
 
 export default MainPresenter;
