@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import LoginContainer from './LoginContainer';
-import { actionCreators as userAction } from '../../../redux/modules/user';
+import { actionCreators as accountAction } from '../../../redux/modules/account';
 
 const mapStateToProps = state => {
-  const { user } = state;
+  const { account } = state;
 
   return {
-    user
+    account
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     signIn: (userId, name, nickname) => {
-      return dispatch(userAction.signIn(userId, name, nickname));
+      return dispatch(accountAction.signIn(userId, name, nickname));
     }
   };
 };

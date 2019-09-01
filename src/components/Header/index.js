@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import HeaderContainer from './HeaderContainer';
-import { actionCreators as userAction } from '../../redux/modules/user';
+import { actionCreators as accountAction } from '../../redux/modules/account';
 
 const mapStateToProps = state => {
-  const { user } = state;
+  const { account } = state;
 
   return {
-    user
+    account
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     signOut: () => {
-      return dispatch(userAction.signOut());
+      return dispatch(accountAction.signOut());
     }
   };
 };

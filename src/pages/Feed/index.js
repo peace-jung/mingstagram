@@ -3,10 +3,10 @@ import FeedContainer from './FeedContainer';
 import { actionCreators as feedAction } from './../../redux/modules/feed';
 
 const mapStateToProps = state => {
-  const { user } = state;
+  const { account } = state;
 
   return {
-    user
+    account
   };
 };
 

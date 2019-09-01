@@ -6,7 +6,8 @@ import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web and AsyncStorage for react-native
 
-import user from './modules/user';
+import account from './modules/account';
+// import user from './modules/user';
 import feed from './modules/feed';
 
 const env = process.env.NODE_ENV;
@@ -22,7 +23,7 @@ if (env === 'development') {
  * 리듀서 합치기
  */
 const reducer = combineReducers({
-  user,
+  account,
   feed
 });
 

@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import Icons from '../../components/Icons';
 const Explore = lazy(() => import('../Explore'));
 const Feed = lazy(() => import('../Feed'));
-const Page404 = lazy(() => import('../Page404'));
+const UserFeed = lazy(() => import('../UserFeed'));
 
 const MainPresenter = () => {
   const loading = (
@@ -23,8 +23,7 @@ const MainPresenter = () => {
             <Switch>
               <Route exact path="/" component={Feed} />
               <Route path="/explore" component={Explore} />
-              <Route path="/#" component={Feed} />
-              <Route component={Page404} />
+              <Route component={UserFeed} />
             </Switch>
           </div>
         </Suspense>

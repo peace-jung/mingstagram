@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Page404Presenter = props => {
-  const { userId } = useSelector(state => state.user);
+  const { userId } = useSelector(state => state.account);
   if (userId && props.location.pathname.match('/accounts')) {
     props.history.push('/');
   } else if (!userId && !props.location.pathname.match('/accounts')) {

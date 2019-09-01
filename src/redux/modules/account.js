@@ -52,8 +52,8 @@ const applySignOut = state => {
 };
 
 export const actionCreators = {
-  // signIn,
-  // signOut
+  signIn,
+  signOut
 };
 
 export default reducer;

@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Icons from '../Icons';
 
 const HeaderPresenter = props => {
+  const { userId } = useSelector(state => state.account);
   const { search, onChangeState, onSignOut } = props;
+
   return (
     <div className="header" style={{ background: '#fff' }}>
       <div className="header-container ant-layout-header">
@@ -58,7 +61,7 @@ const HeaderPresenter = props => {
           <div className="ant-col ant-col-lg-12 ant-col-sm-8 ant-col-xs-0" />
           <div className="ant-col ant-col-lg-12 ant-col-sm-16 ant-col-xs-24">
             <Link to="/explore">
-              <span className="ant-col ant-col-8" style={styles.spanIcon}>
+              <span className="ant-col ant-col-7" style={styles.spanIcon}>
                 <Icons
                   name={'compase'}
                   width={24}
@@ -68,7 +71,7 @@ const HeaderPresenter = props => {
               </span>
             </Link>
             <Link to="/#">
-              <span className="ant-col ant-col-8" style={styles.spanIcon}>
+              <span className="ant-col ant-col-7" style={styles.spanIcon}>
                 <Icons
                   name={'heart'}
                   width={24}
@@ -77,21 +80,28 @@ const HeaderPresenter = props => {
                 />
               </span>
             </Link>
+            <Link to={`/${userId}`}>
+              <span>
+                <span className="ant-col ant-col-7" style={styles.spanIcon}>
+                  <Icons
+                    name={'user'}
+                    width={24}
+                    height={24}
+                    style={styles.iconAlign}
+                  />
+                </span>
+              </span>
+            </Link>
             <span onClick={onSignOut}>
-              <span className="ant-col ant-col-8" style={styles.spanIcon}>
+              <span className="ant-col ant-col-3" style={styles.spanIcon}>
                 <Icons
-                  name={'user'}
-                  width={24}
-                  height={24}
+                  name={'ellipsis'}
+                  width={10}
+                  height={10}
                   style={styles.iconAlign}
                 />
               </span>
             </span>
-            {/* <Link to="/#">
-              <span className="ant-col ant-col-8" style={styles.spanIcon}>
-                <Icons name={'user'} width={24} height={24} />
-              </span>
-            </Link> */}
           </div>
         </div>
       </div>
