@@ -10,6 +10,7 @@ const signIn = (userId, name, nickname) => ({
 const signOut = () => ({ type: SIGNOUT });
 
 const initialState = {
+  isMobile: null,
   // user infomation
   userId: null,
   name: null,

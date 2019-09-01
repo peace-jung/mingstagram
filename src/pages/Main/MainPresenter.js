@@ -1,28 +1,47 @@
-import React from 'react';
-// import { useSelector } from 'react-redux';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Feed from '../Feed';
-import Login from '../Login';
 import Header from '../../components/Header';
+import Icons from '../../components/Icons';
+const Explore = lazy(() => import('../Explore'));
+const Feed = lazy(() => import('../Feed'));
+const Page404 = lazy(() => import('../Page404'));
 
-const MainPresenter = props => {
-  const { user } = props;
-  const isLogin = user.userId !== null && typeof user.userId !== 'undefined';
+const MainPresenter = () => {
+  const loading = (
+    <span style={styles.loading}>
+      <Icons name={'instagram'} width={50} height={50} />
+    </span>
+  );
 
-  return isLogin ? (
+  return (
     <div style={{ minHeight: '100%', background: '#fafafa' }}>
-      <Header />
-      <div style={styles.main}>
-        <Feed />
-      </div>
+      <Router>
+        <Suspense fallback={loading}>
+          <Header />
+          <div style={styles.container}>
+            <Switch>
+              <Route exact path="/" component={Feed} />
+              <Route path="/explore" component={Explore} />
+              <Route path="/#" component={Feed} />
+              <Route component={Page404} />
+            </Switch>
+          </div>
+        </Suspense>
+      </Router>
     </div>
-  ) : (
-    <Login />
   );
 };
 
 const styles = {
-  main: {
+  loading: {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    marginTop: -25,
+    marginLeft: -25
+  },
+  container: {
     maxWidth: 600,
     margin: '0 auto',
     padding: '36px 0 16px'

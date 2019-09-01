@@ -57,7 +57,7 @@ const HeaderPresenter = props => {
         <div className="header-action ant-col ant-col-sm-8 ant-col-xs-7">
           <div className="ant-col ant-col-lg-12 ant-col-sm-8 ant-col-xs-0" />
           <div className="ant-col ant-col-lg-12 ant-col-sm-16 ant-col-xs-24">
-            <Link to="/#">
+            <Link to="/explore">
               <span className="ant-col ant-col-8" style={styles.spanIcon}>
                 <Icons
                   name={'compase'}

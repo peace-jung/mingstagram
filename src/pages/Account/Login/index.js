@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import LoginContainer from './LoginContainer';
-import { actionCreators as userAction } from '../../redux/modules/user';
+import { actionCreators as userAction } from '../../../redux/modules/user';
 
 const mapStateToProps = state => {
   const { user } = state;

@@ -4,7 +4,6 @@ import SignUpPresenter from './SignUpPresenter';
 
 class SignUpContainer extends Component {
   render() {
-    console.log(this.props.signIn)
     return <SignUpPresenter onRegister={this._handelRegister} />;
   }
 

@@ -7,7 +7,6 @@ class LoginContainer extends Component {
   }
 
   _handleLogin = () => {
-    console.log('_handleLogin');
     this.props.signIn('peace', 'peace', '피스');
   };
 }
