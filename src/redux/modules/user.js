@@ -1,17 +1,16 @@
-const SIGNIN = 'USER/SIGNIN';
-const SIGNOUT = 'USER/SIGNOUT';
+const SET_INIT_USER = 'USER/SET_INIT_USER';
+const SET_USER_FEED = 'USER/SET_USER_FEED';
 
-const signIn = (userId, name, nickname) => ({
-  type: SIGNIN,
-  userId,
-  name,
-  nickname
+const setInitUser = () => ({
+  type: SET_INIT_USER
 });
-const signOut = () => ({ type: SIGNOUT });
+
+const setUserFeed = data => ({
+  type: SET_USER_FEED,
+  data
+});
 
 const initialState = {
-  isMobile: null,
-  // user infomation
   userId: null,
   name: null,
   nickname: null,
@@ -19,41 +18,52 @@ const initialState = {
   introduction: null,
   phone_number: null,
   gender: null,
-  createdAt: null
+  createdAt: null,
+  feedList: null
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case SIGNIN:
-      return applySignIn(state, action);
-    case SIGNOUT:
-      return applySignOut(state);
+    case SET_INIT_USER:
+      return applySetInitUser(state, action);
+    case SET_USER_FEED:
+      return applySetUserFeed(state, action);
     default:
       return state;
   }
 }
 
-const applySignIn = (state, action) => {
+const applySetInitUser = () => {
   return {
-    ...state,
-    userId: action.userId,
-    name: action.name,
-    nickname: action.nickname
+    userId: null,
+    name: null,
+    nickname: null,
+    profile_image: null,
+    introduction: null,
+    phone_number: null,
+    gender: null,
+    createdAt: null,
+    feedList: null
   };
 };
 
-const applySignOut = state => {
+const applySetUserFeed = (state, action) => {
   return {
-    // ...state,
-    userId: null,
-    name: null,
-    nickname: null
+    userId: action.userId,
+    name: action.name,
+    nickname: action.nickname,
+    profile_image: action.profile_image,
+    introduction: action.introduction,
+    phone_number: action.phone_number,
+    gender: action.gender,
+    createdAt: action.createdAt,
+    feedList: action.feedList
   };
 };
 
 export const actionCreators = {
-  // signIn,
-  // signOut
+  setInitUser,
+  setUserFeed
 };
 
 export default reducer;

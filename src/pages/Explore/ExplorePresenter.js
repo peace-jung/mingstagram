@@ -1,13 +1,10 @@
 import React from 'react';
-import Header from '../../components/Header';
 
 const ExplorePresenter = props => {
   return (
-    // <div style={{ minHeight: '100%', background: '#fafafa' }}>
-    <div style={styles.container}>ExplorePresenter</div>
-    //   <Header />
-      
-    // </div>
+    <div style={styles.container}>
+      ExplorePresenter
+    </div>
   );
 };
 

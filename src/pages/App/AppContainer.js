@@ -7,9 +7,11 @@ import AppPresenter from './AppPresenter';
 import Icons from '../../components/Icons';
 
 class AppContainer extends Component {
+  state = { isMobile: null };
+
   componentDidMount = () => {
     const isMobile = this._handleCheckMobileDevice();
-    console.warn('isMobile', isMobile);
+    this.setState({ isMobile });
   };
 
   _handleCheckMobileDevice = () => {
@@ -50,7 +52,7 @@ class AppContainer extends Component {
     return (
       <Provider store={store}>
         <PersistGate loading={loading} persistor={persistor}>
-          <AppPresenter {...this.props} />
+          <AppPresenter {...this.props} {...this.state} />
         </PersistGate>
       </Provider>
     );

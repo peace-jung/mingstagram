@@ -54,7 +54,7 @@ const RecommandPresenter = () => {
   ];
 
   return (
-    <>
+    <div style={styles.contatiner}>
       <h4 style={styles.recommendTitle}>회원님을 위한 추천</h4>
       <div style={styles.recommends}>
         {recommendItem.map((item, index) => (
@@ -89,12 +89,16 @@ const RecommandPresenter = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
 const styles = {
-  recommandContatiner: {},
+  contatiner: {
+    maxWidth: 600,
+    margin: '0 auto',
+    padding: '36px 0 16px'
+  },
   recommendTitle: {
     fontWeight: 600,
     fontSize: 16

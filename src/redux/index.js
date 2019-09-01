@@ -7,8 +7,8 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web and AsyncStorage for react-native
 
 import account from './modules/account';
-// import user from './modules/user';
 import feed from './modules/feed';
+import user from './modules/user';
 
 const env = process.env.NODE_ENV;
 
@@ -24,7 +24,8 @@ if (env === 'development') {
  */
 const reducer = combineReducers({
   account,
-  feed
+  feed,
+  user
 });
 
 // export default reducer;
@@ -32,7 +33,7 @@ const reducer = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: [feed]
+  blacklist: [feed, user]
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);

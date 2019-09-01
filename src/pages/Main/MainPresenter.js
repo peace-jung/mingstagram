@@ -19,7 +19,7 @@ const MainPresenter = () => {
       <Router>
         <Suspense fallback={loading}>
           <Header />
-          <div style={styles.container}>
+          <div>
             <Switch>
               <Route exact path="/" component={Feed} />
               <Route path="/explore" component={Explore} />
@@ -39,11 +39,6 @@ const styles = {
     left: '50%',
     marginTop: -25,
     marginLeft: -25
-  },
-  container: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: '36px 0 16px'
   }
 };
 

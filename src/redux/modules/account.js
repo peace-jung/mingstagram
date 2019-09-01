@@ -1,5 +1,6 @@
-const SIGNIN = 'USER/SIGNIN';
-const SIGNOUT = 'USER/SIGNOUT';
+const SIGNIN = 'ACCOUNT/SIGNIN';
+const SIGNOUT = 'ACCOUNT/SIGNOUT';
+const SET_DEVICE = 'ACCOUNT/SET_DEVICE';
 
 const signIn = (userId, name, nickname) => ({
   type: SIGNIN,
@@ -7,7 +8,10 @@ const signIn = (userId, name, nickname) => ({
   name,
   nickname
 });
+
 const signOut = () => ({ type: SIGNOUT });
+
+const setDevice = isMobile => ({ type: SET_DEVICE, isMobile });
 
 const initialState = {
   isMobile: null,
@@ -28,6 +32,8 @@ function reducer(state = initialState, action) {
       return applySignIn(state, action);
     case SIGNOUT:
       return applySignOut(state);
+    case SET_DEVICE:
+      return applySetDevice(state, action);
     default:
       return state;
   }
@@ -51,9 +57,17 @@ const applySignOut = state => {
   };
 };
 
+const applySetDevice = (state, action) => {
+  return {
+    ...state,
+    isMobile: action.isMobile
+  };
+};
+
 export const actionCreators = {
   signIn,
-  signOut
+  signOut,
+  setDevice
 };
 
 export default reducer;
