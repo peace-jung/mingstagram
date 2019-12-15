@@ -2,28 +2,23 @@ const SIGNIN = 'ACCOUNT/SIGNIN';
 const SIGNOUT = 'ACCOUNT/SIGNOUT';
 const SET_DEVICE = 'ACCOUNT/SET_DEVICE';
 
-const signIn = (userId, name, nickname) => ({
-  type: SIGNIN,
-  userId,
-  name,
-  nickname
-});
-
-const signOut = () => ({ type: SIGNOUT });
-
-const setDevice = isMobile => ({ type: SET_DEVICE, isMobile });
-
 const initialState = {
   isMobile: null,
   // user infomation
-  userId: null,
+  birthday: null,
+  id: null,
   name: null,
-  nickname: null,
-  profile_image: null,
-  introduction: null,
-  phone_number: null,
-  gender: null,
-  createdAt: null
+  phone: null,
+  profile_img: null,
+  title: null
+  // userId: null,
+  // name: null,
+  // nickname: null,
+  // profile_image: null,
+  // introduction: null,
+  // phone_number: null,
+  // gender: null,
+  // createdAt: null
 };
 
 function reducer(state = initialState, action) {
@@ -40,20 +35,18 @@ function reducer(state = initialState, action) {
 }
 
 const applySignIn = (state, action) => {
+  const { userInfo } = action;
   return {
     ...state,
-    userId: action.userId,
-    name: action.name,
-    nickname: action.nickname
+    ...userInfo
   };
 };
 
 const applySignOut = state => {
   return {
     // ...state,
-    userId: null,
-    name: null,
-    nickname: null
+    ...initialState,
+    isMobile: state.isMobile
   };
 };
 
@@ -64,10 +57,6 @@ const applySetDevice = (state, action) => {
   };
 };
 
-export const actionCreators = {
-  signIn,
-  signOut,
-  setDevice
-};
+export const actionCreators = {};
 
 export default reducer;

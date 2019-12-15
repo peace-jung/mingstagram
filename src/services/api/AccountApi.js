@@ -3,27 +3,27 @@ import Axios from 'axios';
 
 const login = async (email, pw) => {
   try {
-    const url = baseUrl + '/post/main?userId=a';
+    const url = baseUrl + '/user/login';
     const response = await Axios({
-      method: 'get',
+      method: 'POST',
       url,
-      credentials: 'include',
+      // credentials: 'include',
       mode: 'no-cors',
-      withCredentials: true,
+      // withCredentials: true,
       timeout: 10000,
       headers: {
         'Access-Control-Allow-Origin': '*',
-        // 'Content-Type': 'text/plain'
+        'Content-type': 'application/json'
       },
-      body: {
+      data: {
         userId: email,
         userPw: pw
       }
     });
 
-    const responseJson = await response.json();
-    console.log(responseJson);
-    return true;
+    const responseJson = await response.data;
+    if (responseJson.resultCode === 200) return responseJson.data[0];
+    else throw Error('undefined');
   } catch (error) {
     console.warn(error);
     return false;

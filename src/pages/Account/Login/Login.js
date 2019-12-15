@@ -13,12 +13,12 @@ export default function Login(props) {
     const email = document.getElementById('email').value;
     const pw = document.getElementById('pw').value;
 
-    const retulr = await AccountApi.login(email, pw);
-
-    const userId = 'peace';
-    const name = '피스';
-    const nickname = '피스';
-    // return dispatch({ type: 'ACCOUNT/SIGNIN', userId, name, nickname });
+    const result = await AccountApi.login(email, pw);
+    if (result) {
+      return dispatch({ type: 'ACCOUNT/SIGNIN', userInfo: result });
+    } else {
+      alert('Login Failed');
+    }
   };
 
   return (

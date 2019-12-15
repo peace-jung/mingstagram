@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Icons from '../Icons';
 
 const HeaderPresenter = props => {
   const { userId } = useSelector(state => state.account);
-  const { search, onChangeState, onSignOut } = props;
+
+  const [search, setSearch] = useState('');
+
+  const dispatch = useDispatch();
+
+  const onSignOut = () => {
+    dispatch({ type: 'ACCOUNT/SIGNOUT' });
+  };
 
   return (
     <div className="header" style={{ background: '#fff' }}>
@@ -47,9 +54,7 @@ const HeaderPresenter = props => {
               type="text"
               value={search}
               style={styles.searchInput}
-              onChange={event => {
-                onChangeState('search', event.target.value);
-              }}
+              onChange={event => setSearch(event.target.value)}
             />
             <span className="ant-input-suffix">
               <Icons name={'search'} width={12} height={12} />

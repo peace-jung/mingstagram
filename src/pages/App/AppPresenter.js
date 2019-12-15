@@ -5,8 +5,8 @@ import Main from '../Main';
 
 const AppPresenter = props => {
   const { isMobile } = props;
-  const { userId } = useSelector(state => state.account);
-  const isLogin = userId !== null && typeof userId !== 'undefined';
+  const { id } = useSelector(state => state.account);
+  const isLogin = id !== null && typeof id !== 'undefined';
 
   return isLogin ? (
     <Main isMobile={isMobile} />
