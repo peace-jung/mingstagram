@@ -1,5 +1,6 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import Header from '../../components/Header';
 import Icons from '../../components/Icons';
@@ -7,12 +8,18 @@ const Explore = lazy(() => import('../Explore'));
 const Feed = lazy(() => import('../Feed'));
 const UserFeed = lazy(() => import('../UserFeed'));
 
-const MainPresenter = () => {
+export default function Main(props) {
+  const dispatch = useDispatch();
+
   const loading = (
     <span style={styles.loading}>
       <Icons name={'instagram'} width={50} height={50} />
     </span>
   );
+
+  useEffect(() => {
+    dispatch({ type: 'ACCOUNT/SET_DEVICE', isMobile: props.isMobile });
+  }, []);
 
   return (
     <div style={{ minHeight: '100%', background: '#fafafa' }}>
@@ -30,7 +37,7 @@ const MainPresenter = () => {
       </Router>
     </div>
   );
-};
+}
 
 const styles = {
   loading: {
@@ -41,5 +48,3 @@ const styles = {
     marginLeft: -25
   }
 };
-
-export default MainPresenter;

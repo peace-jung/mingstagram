@@ -1,9 +1,9 @@
 /**
  * redux
  */
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { persistStore, persistReducer } from 'redux-persist';
+import { persistStore, persistCombineReducers } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web and AsyncStorage for react-native
 
 import account from './modules/account';
@@ -20,29 +20,26 @@ if (env === 'development') {
 }
 
 /**
- * 리듀서 합치기
+ * persistConfig
  */
-const reducer = combineReducers({
+const persistConfig = {
+  key: 'root',
+  storage: storage,
+  timeout: null,
+  whiteList: ['user'],
+  blacklist: ['account', 'feed']
+};
+
+/**
+ *  여러 모듈들을 결합하여 리듀서를 생성한다.
+ */
+const reducer = persistCombineReducers(persistConfig, {
   account,
   feed,
   user
 });
 
-// export default reducer;
+let store = createStore(reducer, applyMiddleware(...middlewares));
+let persistor = persistStore(store);
 
-const persistConfig = {
-  key: 'root',
-  storage,
-  blacklist: [feed, user]
-};
-
-const persistedReducer = persistReducer(persistConfig, reducer);
-
-const store = createStore(
-  persistedReducer,
-  compose(applyMiddleware(...middlewares))
-);
-const persistor = persistStore(store);
-
-export { store, persistor };
-export default store;
+export { persistor, store };

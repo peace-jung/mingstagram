@@ -1,2 +1,2 @@
-import AccountContainer from './AccountContainer';
-export default AccountContainer;
+import Account from './Account';
+export default Account;

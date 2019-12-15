@@ -1,10 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-const LoginPresenter = props => {
-  const { onLogin } = props;
-  // const dispatch = useDispatch();
+import { AccountApi } from '../../../services/api';
+
+export default function Login(props) {
+  const account = useSelector(state => state['account']);
+
+  const dispatch = useDispatch();
+
+  const _handleLogin = async () => {
+    const email = document.getElementById('email').value;
+    const pw = document.getElementById('pw').value;
+
+    const retulr = await AccountApi.login(email, pw);
+
+    const userId = 'peace';
+    const name = '피스';
+    const nickname = '피스';
+    // return dispatch({ type: 'ACCOUNT/SIGNIN', userId, name, nickname });
+  };
+
   return (
     <div style={styles.container}>
       <div style={styles.loginBox}>
@@ -14,6 +30,7 @@ const LoginPresenter = props => {
         <div>
           <form>
             <input
+              id={'email'}
               placeholder="이메일 주소"
               type="text"
               className="ant-input"
@@ -23,6 +40,7 @@ const LoginPresenter = props => {
               style={styles.inputStyle}
             />
             <input
+              id={'pw'}
               placeholder="비밀번호"
               type="password"
               className="ant-input"
@@ -37,15 +55,7 @@ const LoginPresenter = props => {
           <button
             type="button"
             className="ant-btn ant-btn-primary ant-btn-block"
-            onClick={onLogin}
-            // onClick={() =>
-            //   dispatch({
-            //     type: 'USER/SIGNIN',
-            //     id: 'peace',
-            //     name: 'peace',
-            //     nickname: '피스'
-            //   })
-            // }
+            onClick={_handleLogin}
           >
             <span>로그인</span>
           </button>
@@ -66,7 +76,7 @@ const LoginPresenter = props => {
       </div>
     </div>
   );
-};
+}
 
 const styles = {
   container: {
@@ -95,5 +105,3 @@ const styles = {
     textOverflow: 'ellipsis'
   }
 };
-
-export default LoginPresenter;

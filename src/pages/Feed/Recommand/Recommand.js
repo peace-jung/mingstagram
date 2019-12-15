@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RecommandPresenter = () => {
+export default function Recommand(props) {
   const recommendItem = [
     {
       id: 'instagram1',
@@ -91,7 +91,7 @@ const RecommandPresenter = () => {
       </div>
     </div>
   );
-};
+}
 
 const styles = {
   contatiner: {
@@ -147,5 +147,3 @@ const styles = {
     alignItems: 'center'
   }
 };
-
-export default RecommandPresenter;

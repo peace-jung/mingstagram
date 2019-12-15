@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useEffect, useDispatch } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import Page404 from '../Page404';
 import Icons from '../../components/Icons';
 import defaultImage from '../../assets/img/profile1.png';
 
-const UserFeedPresenter = props => {
-  const { isMobile, user } = props;
+export default function UserFeed(props) {
+  const dispatch = useDispatch();
+
+  const account = useSelector(state => state['account']);
+  const user = useSelector(state => state['user']);
+  console.log(account, user);
+
+  useEffect(() => {
+    return () => {
+      dispatch({ type: 'USER/SET_INIT_USER' });
+    };
+  }, []);
 
   return (
     <Div>
@@ -66,7 +77,7 @@ const UserFeedPresenter = props => {
       </div>
     </Div>
   );
-};
+}
 
 const Div = styled.div`
   max-width: 935px;
@@ -139,5 +150,3 @@ const styles = {
     marginLeft: 10
   }
 };
-
-export default UserFeedPresenter;
