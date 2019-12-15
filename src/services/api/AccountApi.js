@@ -1,22 +1,26 @@
 import { baseUrl } from '../utils';
+import Axios from 'axios';
 
 const login = async (email, pw) => {
   try {
-    const url = baseUrl + '/user/login';
-    const data = {
-      method: 'POST',
-      // credentials: 'include',
+    const url = baseUrl + '/post/main?userId=a';
+    const response = await Axios({
+      method: 'get',
+      url,
+      credentials: 'include',
       mode: 'no-cors',
+      withCredentials: true,
+      timeout: 10000,
       headers: {
-        'Content-Type': 'application/json'
+        'Access-Control-Allow-Origin': '*',
+        // 'Content-Type': 'text/plain'
       },
-      body: JSON.stringify({
+      body: {
         userId: email,
         userPw: pw
-      })
-    };
+      }
+    });
 
-    const response = await fetch(url, data);
     const responseJson = await response.json();
     console.log(responseJson);
     return true;
